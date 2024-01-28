@@ -17,19 +17,20 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
-@Transactional
 public class ItemRestServiceImpl implements ItemRestService {
 
     private final ItemRepository itemRepository;
     private final ItemMapper itemMapper;
 
     @Override
+    @Transactional(readOnly = true)
     public ItemResponse getById(UUID id) {
         Item item = itemRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(Item.class.getSimpleName(), id.toString()));
         return itemMapper.toDto(item);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Page<ItemResponse> getPage(int pageNumber, int pageSize) {
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
         return itemRepository.findAll(pageable)
@@ -38,13 +39,16 @@ public class ItemRestServiceImpl implements ItemRestService {
     }
 
     @Override
+    @Transactional
     public ItemResponse post(ItemRequest itemDto) {
         Item item = itemMapper.toEntity(itemDto);
-        Item created = itemRepository.save(item);
-        return itemMapper.toDto(created);
+        item.setId(UUID.randomUUID());
+
+        return itemMapper.toDto(itemRepository.save(item));
     }
 
     @Override
+    @Transactional
     public ItemResponse delete(UUID id) {
         Item item = itemRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(Item.class.getSimpleName(), id.toString()));
         itemRepository.delete(item);
@@ -52,6 +56,7 @@ public class ItemRestServiceImpl implements ItemRestService {
     }
 
     @Override
+    @Transactional
     public ItemResponse put(UUID id, ItemRequest itemDto) {
         Item item = itemRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(Item.class.getSimpleName(), id.toString()));
         item.setTitle(itemDto.getTitle());

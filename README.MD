@@ -46,7 +46,7 @@ How to **launch**:
 
 1. Build executable **jar** file -> Start **install** cycle for project. Result is **jar** file in **target** directory.
 2. Build images from docker-compose.yaml file -> execute command **docker compose build** in root folder
-3. Launch containers from builded images ->  execute command **docker compose start** in root folder
+3. Launch containers from builded images ->  execute command **docker compose up** in root folder
 
 How to **stop**: execute command **docker compose stop** in root folder
 
