@@ -1,0 +1,26 @@
+version: '3.1'
+services:
+  todo-list-server:
+    build: ./
+    container_name: todo-list-server
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    depends_on:
+      - todo-list-db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://todo-list-db:5432/todo
+      - SPRING_DATASOURCE_DRIVER=org.postgresql.Driver
+      - SPRING_DATASOURCE_USER=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SERVER_PORT=8080
+
+  todo-list-db:
+    image: postgres:14-alpine
+    container_name: todo-list-db
+    ports:
+      - "6541:5432"
+    environment:
+      - POSTGRES_DB=todo
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root

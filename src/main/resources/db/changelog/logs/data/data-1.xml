@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+      http://www.liquibase.org/xml/ns/pro
+      http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.5.xsd">
+
+    <changeSet id="init-items-data" author="basiladze-gt">
+        <insert tableName="items">
+            <column name="id" value="ff145c0c-1e7f-49ac-942b-2480d2e58bb8"/>
+            <column name="title" value="Task 1"/>
+            <column name="description" value="Some description for task 1"/>
+        </insert>
+        <insert tableName="items">
+            <column name="id" value="679eb876-853d-44fc-bf49-140eb73f8bf3"/>
+            <column name="title" value="Task 2"/>
+            <column name="description" value="Some description for task 2"/>
+        </insert>
+        <insert tableName="items">
+            <column name="id" value="979632e4-6c46-45ec-a3db-aa52f94750e6"/>
+            <column name="title" value="Task 3"/>
+            <column name="description" value="Some description for task 3"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="init-users-data" author="basiladze-gt">
+        <insert tableName="users">
+            <column name="id" value="8d84f534-24c4-4ab5-bde8-0a833b782f31"/>
+            <column name="login" value="admin"/>
+            <column name="password" value="$2a$10$kT2Dc4uD6tNnFSsLkfj4GuBYH9/O47Y2XPkcxrkQB5oZ9begi9dEa"/>
+            <column name="role" value="ADMIN"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
