@@ -13,13 +13,13 @@
 
 ## Requirements
 
-[Java Developer task.pdf](https://github.com/Goganesh/bookshop/blob/master/docs/%D0%94%D0%B8%D0%BF%D0%BB%D0%BE%D0%BC.%20%D0%A7%D0%B0%D1%81%D1%82%D1%8C%201.pdf)
+[Java Developer task.pdf](https://github.com/Goganesh/todo-list/blob/master/docs/Java%20Developer%20task.pdf)
 
 ## Entry points
 
 ### Hosts and ports
 
-Default parameters 
+Default parameters
 
 | App           | Host                  |                  
 |:--------------|:----------------------|
@@ -39,15 +39,20 @@ Authentication using the login-password method
 ### Launch app
 
 How launch you need:
+
 - Docker
 
-How to launch:
+How to **launch**:
+
 1. Build executable **jar** file -> Start **install** cycle for project. Result is **jar** file in **target** directory.
 2. Build images from docker-compose.yaml file -> execute command **docker compose build** in root folder
 3. Launch containers from builded images ->  execute command **docker compose start** in root folder
 
-How to stop:
-1. execute command **docker compose stop** in root folder
+How to **stop**: execute command **docker compose stop** in root folder
+
+How to **remove**: execute command **docker compose down** in root folder
+
+How to **restart**: execute command **docker compose restart** in root folder
 
 ### Frontend requests
 
